@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-D:/HAI_LAM/What_your_name/RenText.cpp
-RenText.h
 D:/HAI_LAM/What_your_name/RenText.h
+SDL2/SDL_events.h
+-
 SDL2/SDL.h
 -
 SDL2/SDL_ttf.h
@@ -18,17 +18,9 @@ iostream
 string
 -
 
-D:/HAI_LAM/What_your_name/RenText.h
-SDL2/SDL_events.h
--
-string
--
-
 D:/HAI_LAM/What_your_name/main.cpp
 RenText.h
 D:/HAI_LAM/What_your_name/RenText.h
-SDL2/SDL.h
--
 SDL2/SDL_ttf.h
 -
 iostream

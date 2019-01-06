@@ -1,9 +1,9 @@
 #include "RenText.h"
 
-#include<SDL2/SDL.h>
-#include<SDL2/SDL_ttf.h>
-#include<iostream>
-#include<string>
+// #include<SDL2/SDL.h>
+// #include<SDL2/SDL_ttf.h>
+// #include<iostream>
+// #include<string>*/
 
 
 void RenText::CreateWindow() {
@@ -60,10 +60,18 @@ void RenText::RenderText(std::string text,int x, int y) {
 	desRect.w = srcRest.w;
 	desRect.h = srcRest.h;
 	
-	SDL_RenderClear(renderer);
+	//SDL_RenderClear(renderer);
 	
 	SDL_RenderCopy(renderer, texture, &srcRest, &desRect);
 		
+	//SDL_RenderPresent(renderer);
+}
+
+void RenText::ClearRender() {
+	SDL_RenderClear(renderer);
+}
+
+void RenText::RenderPresent() {
 	SDL_RenderPresent(renderer);
 }
 
