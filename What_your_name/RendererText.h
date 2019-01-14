@@ -13,10 +13,9 @@ class SDL_Texture;
 
 class RendererText {
     public:
-        RenText();
-        virtual ~RenText();
+        RenText();        
         void CreateWindow();
-        void RenderText(std::string text, int x, int y);
+        void RenderText(const std::string &text,const int &x,const int &y);
         void ClearRender();
         void RenderPresent();
         void Quit();

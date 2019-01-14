@@ -3,7 +3,7 @@
 
 void RendererText::CreateWindow() {
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-		printf("Unable to initialize SDL %s\n", SDL_GetError());
+		std::cout <<"Unable to initialize SDL \n" << SDL_GetError();
 		return ;
 	}
  
@@ -16,20 +16,20 @@ void RendererText::CreateWindow() {
 	
 	window = SDL_CreateWindow("What's your name", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, SDL_WINDOW_SHOWN);
 	if (window == nullptr) {
-		printf("Could not create window %s", SDL_GetError());
+		std::cout << "Could not create window %s" << SDL_GetError();
 		return ;
 	}
 
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (renderer == nullptr) {
-		printf("Could not create render %s", SDL_GetError());
+		std::cout << "Could not create render " << SDL_GetError();
 		return ;
 	}
 
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 }
 
-void RendererText::RenderText(std::string text,int x, int y) {
+void RendererText::RenderText(const std::string &text,const int &x, const int &y) {
 	
 	TTF_Font* font = TTF_OpenFont("arial.ttf", 30);
  
