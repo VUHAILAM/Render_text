@@ -4,18 +4,18 @@
 
 int main(int argc, char** args) {
 	SDL_Event mainEvent;
-	std::string tex = "";
-	RendererText* a = new RendererText;
-	a->CreateWindow();
+	std::string text = "";
+	RendererText* object = new RendererText;
+	object->CreateWindow();
 	bool isRunning = true;
 	bool check = false;
 	while (isRunning) {
-		a->ClearRender();
-		a->RenderText("What's your name??",200, 200);
-		a->RenderText(tex,200,300);
+		object->ClearRender();
+		object->RenderText("What's your name??",200, 200);
+		object->RenderText(text,200,300);
 		if(check)
-			a->RenderText("My name is " + tex, 200, 400);
-		a->RenderPresent();
+			object->RenderText("My name is " + text, 200, 400);
+		object->RenderPresent();
 		while (SDL_PollEvent(&mainEvent)) {
 			if(mainEvent.type == SDL_QUIT) {
 				isRunning = false;
@@ -23,13 +23,13 @@ int main(int argc, char** args) {
 			} else if(mainEvent.type == SDL_TEXTINPUT || mainEvent.type == SDL_KEYDOWN) {
 				
 				if(mainEvent.type == SDL_TEXTINPUT) {
-					tex += mainEvent.text.text;
+					text += mainEvent.text.text;
 					
 				}
-				else if(mainEvent.key.keysym.sym == SDLK_BACKSPACE && tex.length() > 0) {
-					tex = tex.substr(0,tex.length()-1);
+				else if(mainEvent.key.keysym.sym == SDLK_BACKSPACE && text.length() > 0) {
+					text = text.substr(0,text.length()-1);
 					
-				} else if(mainEvent.key.keysym.sym == SDLK_KP_ENTER && tex.length() > 0) {
+				} else if(mainEvent.key.keysym.sym == SDLK_KP_ENTER && text.length() > 0) {
 					check = true;
 					SDL_StopTextInput();
 				}
@@ -45,7 +45,7 @@ int main(int argc, char** args) {
 	}
 	
 	SDL_StopTextInput();
-	a->Quit();
+	object->Quit();
 	
 	SDL_Quit();
     return 0;
